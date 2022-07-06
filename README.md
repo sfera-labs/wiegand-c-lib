@@ -72,7 +72,7 @@ The returned value corresponds to the latest noise event detected on the interfa
 14 | Pulse too short
 15 | Pulse too long
 
-<a name="note-2">**Note 1**</a>: Other noise values have higher priority, i.e. `10` is returned only if there are no other previous events not returned yet. This effectively indicates that `wiegandOnData()` is being called subsequently with the GPIO state parameter unchanged (which might happen when using interrupts upon fast pulses on the line) or the code is calling the function not only when the state has changed, e.g. it is called periodically with the current state of the line. This is a functionally acceptable implementation, in this case `10` corresponds to no noise.
+<a name="note-1">**Note 1**</a>: Other noise values have higher priority, i.e. `10` is returned only if there are no other previous events not returned yet. This effectively indicates that `wiegandOnData()` is being called subsequently with the GPIO state parameter unchanged (which might happen when using interrupts upon fast pulses on the line) or the code is calling the function not only when the state has changed, e.g. it is called periodically with the current state of the line. This is a functionally acceptable implementation, in this case `10` corresponds to no noise.
 
 <a name="note-2">**Note 2**</a>: Possibly indicates a short circuit between the two lines.
 
