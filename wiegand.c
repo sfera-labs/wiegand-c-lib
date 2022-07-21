@@ -66,10 +66,15 @@ void wiegandOnData(wiegandItf* w, int line, int val) {
 
 	if (*d == val) {
 		// didn't change state, maybe a fast pulse
-		if (w->noise == 0) {
-			w->noise = 10;
+		if (val == 1) {
+			// tolerate it on falling edge
+			val = 0;
+		} else {
+			if (w->noise == 0) {
+				w->noise = 10;
+			}
+			return;
 		}
-		return;
 	}
 
 	*d = val;
